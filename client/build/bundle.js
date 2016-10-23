@@ -51,7 +51,7 @@
 	var Game = __webpack_require__(160);
 
 	window.onload = function () {
-	  ReactDOM.render(React.createElement(Game, { title: 'Guess Who', rules: 'Select from the dropdown menu and click to elimate characters from the board', depositAmount: 0.5 }), document.getElementById('app'));
+	  ReactDOM.render(React.createElement(Game, { title: 'Guess Who', rules: 'Select from the dropdown menu and click to elimate characters from the board' }), document.getElementById('app'));
 	};
 
 /***/ },
@@ -19763,24 +19763,17 @@
 	  propTypes: {
 	    title: React.PropTypes.string.isRequired,
 	    rules: React.PropTypes.string.isRequired
+
 	  },
 	  setToUnselectable: function setToUnselectable() {
 	    this.setState({ total: this.state.total + this.props.depositAmount });
 	  },
 
-	  withdrawMoney: function withdrawMoney() {
-	    this.setState({ total: this.state.total - this.props.depositAmount });
-	  },
-
 	  getInitialState: function getInitialState() {
-	    return {
-	      total: 0
-	    };
+	    return {};
 	  },
 
 	  render: function render() {
-
-	    var total = this.state.total.toFixed(2);
 
 	    return React.createElement(
 	      "div",
@@ -19796,44 +19789,62 @@
 	        this.props.rules
 	      ),
 	      React.createElement(
-	        "p",
-	        null,
-	        "s"
+	        "select",
+	        { value: this.optionsState },
+	        React.createElement(
+	          "option",
+	          { value: "Is human" },
+	          "Is human"
+	        ),
+	        React.createElement(
+	          "option",
+	          { value: "Has a moustache" },
+	          "Has a moustache"
+	        ),
+	        React.createElement(
+	          "option",
+	          { value: "Is male" },
+	          "Is male"
+	        ),
+	        React.createElement(
+	          "option",
+	          { value: "Is female" },
+	          "Is female"
+	        ),
+	        React.createElement(
+	          "option",
+	          { value: "Is royal" },
+	          "Is royal"
+	        )
 	      ),
 	      React.createElement(
 	        "button",
-	        { type: "button", onClick: this.setToUnselectable },
-	        React.createElement("img", { src: "http://images.clipartpanda.com/mario-bros-clip-art-LcKge5Mca.jpeg" }),
+	        { id: "Mario", type: "button", onClick: this.setToUnselectable },
 	        "Mario"
 	      ),
 	      React.createElement(
 	        "button",
-	        { type: "button", onClick: this.setToUnselectable },
-	        React.createElement("img", { src: "http://www.clipartkid.com/images/441/luiginsmbw-png-nYr7Ak-clipart.png" }),
+	        { id: "Luigi", type: "button", onClick: this.setToUnselectable },
 	        "Luigi"
 	      ),
 	      React.createElement(
 	        "button",
-	        { type: "button", onClick: this.setToUnselectable },
-	        React.createElement("img", { src: "http://images.clipartpanda.com/mario-bros-clip-art-nsmb-yoshi.jpg" }),
+	        { id: "Yoshi", type: "button", onClick: this.setToUnselectable },
 	        "Yoshi"
 	      ),
 	      React.createElement(
 	        "button",
-	        { type: "button", onClick: this.setToUnselectable },
-	        React.createElement("img", { src: "http://images.clipartpanda.com/mario-bros-clip-art--mario-bros-clipart-3.jpg" }),
+	        { id: "Bowser", type: "button", onClick: this.setToUnselectable },
 	        "Bowser"
 	      ),
 	      React.createElement(
 	        "button",
-	        { type: "button", onClick: this.setToUnselectable },
-	        React.createElement("img", { src: "http://images.clipartpanda.com/mario-bros-clip-art-fe32b21affa9d98b4c50cd19d7e95179.jpg" }),
+	        { id: "Toad", type: "button", onClick: this.setToUnselectable },
 	        "Toad"
 	      ),
 	      React.createElement(
 	        "button",
-	        { type: "button", onClick: this.setToUnselectable },
-	        React.createElement("img", { src: "http://images.clipartpanda.com/mario-bros-clip-art-nsmb-princess-peach.jpg" }),
+	        { id: "Peach", type: "button", onClick: this.setToUnselectable },
 	        "Princess Peach"
 	      )
 	    );
@@ -19842,6 +19853,13 @@
 	});
 
 	module.exports = GuessWho;
+
+	// <img src="http://images.clipartpanda.com/mario-bros-clip-art-fe32b21affa9d98b4c50cd19d7e95179.jpg"/>
+	// <img src="http://images.clipartpanda.com/mario-bros-clip-art-nsmb-princess-peach.jpg"/>
+	// <img src="http://images.clipartpanda.com/mario-bros-clip-art-nsmb-yoshi.jpg" />
+	// <img src="http://images.clipartpanda.com/mario-bros-clip-art--mario-bros-clipart-3.jpg" />
+	// <img src="http://www.clipartkid.com/images/441/luiginsmbw-png-nYr7Ak-clipart.png" />
+	// <img src="http://images.clipartpanda.com/mario-bros-clip-art-LcKge5Mca.jpeg"/>
 
 /***/ }
 /******/ ]);
